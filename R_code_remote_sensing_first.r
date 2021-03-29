@@ -1,6 +1,10 @@
 # My first code in R for remote sensing
+# codice R per analisi di immagini satellitari
+
 # creazione della cartella di riferimento lab sul disco principale C 
+# packages: raster
 install.packages("raster") # (argomento)
+# con library() richiamiamo il pacchetto
 library(raster)
 setwd("C:/lab/") # sistema operativo windows 
 p224r63_2011 <- brick("p224r63_2011_masked.grd") # funzione brick permette di importare immagini satellitari
@@ -86,6 +90,8 @@ plot(p224r63_2011$B4_sre, col=clnir)
 #### Day4
 
 ## Visualizing data by RGB plotting
+# 3 componenti: RGB
+# 3 bande: R= banda del rosso, G= banda del verde, B= banda del blu
 
 
 # Bande Landsat
