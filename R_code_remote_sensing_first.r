@@ -6,6 +6,8 @@
 install.packages("raster") # (argomento)
 # con library() richiamiamo il pacchetto
 library(raster)
+# Loading required package: sp
+
 setwd("C:/lab/") # sistema operativo windows 
 p224r63_2011 <- brick("p224r63_2011_masked.grd") # funzione brick permette di importare immagini satellitari
 p224r63_2011 #info sull'immagine
@@ -129,7 +131,7 @@ plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin")
 plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist")
 
 
-# par natural colours, false colours, and false colours with histogram stretching
+# par natural colours, flase colours, and false colours with histogram stretching
 par(mfrow=c(3,1))
 plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin")
 plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin")
