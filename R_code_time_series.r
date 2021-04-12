@@ -1,3 +1,5 @@
+# Time series analysis: lo scioglimento dei ghiacci in Groenlandia (dati programma Copernicus); Come scaricare dati Copernicus
+
 # Time series analysis
 # Greenland increase of temperature
 # Data and code from Emanuela Cosma
@@ -6,6 +8,9 @@
 library(raster)
 
 setwd("C:/lab/greenland") # Windows
+
+install.packages("rasterVis")
+library(rasterVis)
 
 
 lst_2000 <- raster("lst_2000.tif")
@@ -37,3 +42,37 @@ plot(TGr)
 
 plotRGB(TGr, 1, 2, 3, stretch="Lin")
 plotRGB(TGr, 2, 3, 4, stretch="Lin")
+
+install.packages("rgdal")
+library(rgdal)
+
+levelplot(TGr)
+cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
+levelplot(TGr, col.regions=cl)
+
+levelplot(TGr,col.regions=cl, names.attr=c("July 2000","July 2005", "July 2010", "July 2015"))
+
+# https://www.rdocumentation.org/packages/lattice/versions/0.15-3/topics/levelplot
+
+levelplot(TGr,col.regions=cl, main="LST variation in time",
+          names.attr=c("July 2000","July 2005", "July 2010", "July 2015"))
+
+# Melt
+meltlist <- list.files(pattern="melt")
+melt_import <- lapply(meltlist,raster)
+melt <- stack(melt_import)
+melt
+
+levelplot(melt)
+
+# Ice sheet difference 2007 - 1979
+melt_amount <- melt$X2007annual_melt - melt$X1979annual_melt
+
+clb <- colorRampPalette(c("blue","white","red"))(100)
+plot(melt_amount, col=clb)
+
+levelplot(melt_amount, col.regions=clb)
+
+
+install.packages("knitr") 
+library(knitr)
