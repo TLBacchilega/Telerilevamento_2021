@@ -1,5 +1,8 @@
 # My first code in R for remote sensing
+
 # codice R per analisi di immagini satellitari
+# Visualizzazione dei dati satellitari in R (Dati Landsat, 30m)
+
 
 # creazione della cartella di riferimento lab sul disco principale C 
 # packages: raster
