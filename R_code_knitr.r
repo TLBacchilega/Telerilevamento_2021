@@ -10,6 +10,10 @@ library(knitr) # require(knitr)
 setwd("C:/lab/")  
 
 # stitch("~/Downloads/R_code_temp.r", template=system.file("misc", "knitr-template.Rnw", package="knitr"))
-stitch("R_code_greenland.r.tx", template=system.file("misc", "knitr-template.Rnw", package="knitr")) # documento di testo salvato nella cartella lab: R_code_greenland.r
 
 # https://yihui.org/tinytex/r/#debugging
+tinytex::install_tinytex()    
+tinytex::tlmgr_update()
+stitch("R_code_greenland.r.tx", template=system.file("misc", "knitr-template.Rnw", package="knitr")) # documento di testo salvato nella cartella lab: R_code_greenland.r
+
+
