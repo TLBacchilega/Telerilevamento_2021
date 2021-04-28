@@ -52,6 +52,8 @@ dev.off()
 plotRGB(p224r63_2011res_pca$map, r=1, g=2, b=3, stretch="lin")
 
 
+
+# add from students:
 # https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/str
 str(p224r63_2011res_pca) # per visualizzare in modo compatto la struttura di un oggetto
 
