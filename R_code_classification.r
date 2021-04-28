@@ -1,6 +1,6 @@
 ## R_code_classification.r
 
-library(raster) # pacchetto gà installato
+library(raster) # pacchetto già installato
 
 
 
