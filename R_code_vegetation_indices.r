@@ -1,6 +1,7 @@
 # R_code_vegetation_indices.r
+# Indici di Vegetazione: il caso della foresta amazzonica (dati preprocessati, Landsat 30m)
 
-library(raster) # pacchetto già scaricato
+library(raster) # pacchetto già installato
 
 setwd("C:/lab/") # Windows
 
@@ -15,11 +16,16 @@ plotRGB(defor2, r=1, g=2, b=3, stretch="lin")
 
 library(raster) # require(raster)
 
-setwd("C:/lab/") # Windows
 
+# https://cran.r-project.org/web/packages/rasterdiv/index.html
 
-install.packages("rasterdiv")
+install.packages("rasterdiv") # for the worldwide NDVI
 library(rasterdiv)
+
+install.packages("rasterVis")
+library(rasterVis)
+
+setwd("C:/lab/") # Windows
 
 defor1 <- brick("defor1.jpg")
 defor2 <- brick("defor2.jpg")
@@ -94,6 +100,26 @@ plot(vi, col=cl)
 
 vi2 <- spectralIndices(defor2, green = 3, red = 2, nir = 1)
 plot(vi2, col=cl)
+
+
+
+
+
+library(rasterdiv)
+# worldwide NDVI
+plot(copNDVI)
+
+
+# Pixels with values 253, 254 and 255 (water) will be set as NA’s.
+copNDVI <- reclassify(copNDVI, cbind(253:255, NA)) # per eliminare l'acqua dalla mappa (NDVI a scala globale)
+plot(copNDVI)
+
+library(rasterVis) # pacchetto già installato
+
+# https://www.rdocumentation.org/packages/lattice/versions/0.10-10/topics/levelplot
+
+# rasterVis package needed:
+levelplot(copNDVI) # valori medi dal 1999 fino al 2017 (valori più alti foresta amazzonica, foreste del centro africa, Borneo...)
 
 
  
