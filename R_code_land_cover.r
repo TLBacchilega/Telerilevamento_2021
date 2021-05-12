@@ -74,10 +74,10 @@ d2c3 <- unsuperClass(defor2, nClasses=3)
 plot(d2c3$map)
 
 # frequencies
-freq(d1c$map)
-#   value  count
-# [1,]     1 306583
-# [2,]     2  34709
+freq(d1c$map)                     
+#   value  count                #   value  count                
+# [1,]     1 306583             # [1,]     1  34560
+# [2,]     2 34709              # [2,]      2  306732 
 
 s1 <- 306583 + 34709
 
@@ -104,7 +104,7 @@ percentages # information about percentages (tabella con tre colonne)
 # https://www.rdocumentation.org/packages/ggplot2/versions/3.3.3
 library(ggplot2)
 # ggplot(mpg è il dataset all'interno del pacchetto, aes(displ, hwy, colour = class)) + tipo di classe
-  # geom_point() tipo di grafico es geom_bar
+# geom_point() tipo di grafico es geom_bar
 # https://www.rdocumentation.org/packages/ggplot2/versions/3.3.3/topics/geom_bar
 
 ggplot(percentages, aes(x=cover, y=percent_1992, color=cover)) + geom_bar(stat="identity", fill="white")
